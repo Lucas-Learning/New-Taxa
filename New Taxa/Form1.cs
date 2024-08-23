@@ -18,11 +18,10 @@ namespace New_Taxa
     public partial class Form1 : Form
     {
         private WebView2 webView;
-        private string apiKey = "";
+        private string apiKey = "AIzaSyDAo5Cokd4acdyTCMgtY1DXBUTPToyE--I";
         public Form1()
         {
             InitializeComponent();
-            map_type.SelectedIndex = 1;
             InitializeWebView();
         }
 
@@ -44,8 +43,7 @@ namespace New_Taxa
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] types = new string[] { "m", "k", "h", "p", "e" };
-            string url = string.Format("http://maps.google.com/maps?t={0}&q=loc:{1}",types[map_type.SelectedIndex], name_Location.Text);
+            string url = string.Format("http://maps.google.com/maps?t={0}&q=loc:{1}","Satellite", name_Location.Text);
             webView.Source = new Uri(url);
         }
     
@@ -69,24 +67,27 @@ namespace New_Taxa
         {
 
         }
-
         private async void button2_Click(object sender, EventArgs e)
         {
             string location = name_Location.Text;
             string destination = destination_Location.Text;
-            if(string.IsNullOrEmpty(location) || string.IsNullOrEmpty(destination))
+
+            if (string.IsNullOrEmpty(location) || string.IsNullOrEmpty(destination))
             {
                 MessageBox.Show("Please enter both origin and destination.");
                 return;
             }
+
             try
             {
-                string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={location}&destination={destination}&key={apiKey}";
+                string url = $"https://maps.googleapis.com/maps/api/directions/json?origin={location}&destination={destination}&mode=driving&key={apiKey}";
                 using (HttpClient client = new HttpClient())
                 {
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
                     string responseBody = await response.Content.ReadAsStringAsync();
+
+                    
                     JObject json = JObject.Parse(responseBody);
                     var distance = json["routes"][0]["legs"][0]["distance"]["text"];
                     MessageBox.Show($"Distance: {distance}");
@@ -97,12 +98,19 @@ namespace New_Taxa
                 MessageBox.Show(ex.Message);
             }
         }
+
+
         private void name_Location_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void map_type_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
