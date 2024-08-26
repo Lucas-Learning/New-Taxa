@@ -17,25 +17,19 @@ namespace New_Taxa
 {
     public partial class Form1 : Form
     {
-        private WebView2 webView;
         private string apiKey = "AIzaSyDAo5Cokd4acdyTCMgtY1DXBUTPToyE--I";
         public Form1()
         {
             InitializeComponent();
+          
             InitializeWebView();
         }
 
         private async void InitializeWebView()
         {
-            webView = new WebView2
-            {
-                Width = 800,  
-                Height = 600, 
-                Left = 10,    
-                Top = 50,
-            };
-            this.Controls.Add(webView);
-            await webView.EnsureCoreWebView2Async(null);
+            
+            this.Controls.Add(webView21);
+            await webView21.EnsureCoreWebView2Async(null);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -44,7 +38,7 @@ namespace New_Taxa
         private void button1_Click(object sender, EventArgs e)
         {
             string url = string.Format("http://maps.google.com/maps?t={0}&q=loc:{1}","Satellite", name_Location.Text);
-            webView.Source = new Uri(url);
+            webView21.Source = new Uri(url);
         }
     
 
@@ -69,6 +63,7 @@ namespace New_Taxa
         }
         private async void button2_Click(object sender, EventArgs e)
         {
+            string distanceStr;
             string location = name_Location.Text;
             string destination = destination_Location.Text;
 
@@ -90,13 +85,16 @@ namespace New_Taxa
                     
                     JObject json = JObject.Parse(responseBody);
                     var distance = json["routes"][0]["legs"][0]["distance"]["text"];
+                    distanceStr = distance.ToString();
                     MessageBox.Show($"Distance: {distance}");
+                    label4.Text = distanceStr;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
         }
 
 
@@ -111,6 +109,16 @@ namespace New_Taxa
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name_Location_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
