@@ -11,12 +11,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using Microsoft.Web.WebView2.WinForms;
 using Microsoft.Web.WebView2.Core;
 using System.Net.Http;
+using System.Globalization;
 using Newtonsoft.Json.Linq;
 
 namespace New_Taxa
 {
     public partial class Form1 : Form
     {
+        private string distancestr { get; set; }
+        private double pris { get; set; }
+        private double basePrice = 0;
         private string apiKey = "AIzaSyDAo5Cokd4acdyTCMgtY1DXBUTPToyE--I";
         public Form1()
         {
@@ -40,8 +44,6 @@ namespace New_Taxa
             string url = string.Format("http://maps.google.com/maps?t={0}&q=loc:{1}","Satellite", name_Location.Text);
             webView21.Source = new Uri(url);
         }
-    
-
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             
@@ -63,7 +65,7 @@ namespace New_Taxa
         }
         private async void button2_Click(object sender, EventArgs e)
         {
-            string distanceStr;
+            pris = basePrice; 
             string location = name_Location.Text;
             string destination = destination_Location.Text;
 
@@ -82,22 +84,30 @@ namespace New_Taxa
                     response.EnsureSuccessStatusCode();
                     string responseBody = await response.Content.ReadAsStringAsync();
 
-                    
                     JObject json = JObject.Parse(responseBody);
                     var distance = json["routes"][0]["legs"][0]["distance"]["text"];
-                    distanceStr = distance.ToString();
-                    MessageBox.Show($"Distance: {distance}");
-                    label4.Text = distanceStr;
+                    distancestr = distance.ToString();
+                    label8.Text = distancestr;
+                    distancestr = distancestr.Replace(",", ".");
+                    double distanceValue = 0;
+                    if (distancestr.EndsWith(" km"))
+                    {
+                        distanceValue = double.Parse(distancestr.Replace(" km", ""), CultureInfo.InvariantCulture);
+                    }
+                    else if (distancestr.EndsWith(" m"))
+                    {
+                        distanceValue = double.Parse(distancestr.Replace(" m", ""), CultureInfo.InvariantCulture) / 1000;
+                    }
+                    double totalCost = distanceValue * 12.75;
+                    pris += totalCost;
+                    label4.Text = pris.ToString();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
-
-
         private void name_Location_TextChanged(object sender, EventArgs e)
         {
 
@@ -121,6 +131,48 @@ namespace New_Taxa
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+        private void UpdatePrice()
+        {
+            if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 0)
+            {
+                basePrice = 37;
+            }
+            else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 0)
+            {
+                basePrice = 47;               
+            }
+            else if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 1)
+            {
+                basePrice = 77;               
+            }
+            else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 1)
+            {
+                basePrice = 87;
+            }
+            pris = basePrice;
+            label4.Text = pris.ToString();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            UpdatePrice();
+        }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            UpdatePrice();
         }
     }
 }
