@@ -100,7 +100,6 @@ namespace New_Taxa
                         distanceValue = double.Parse(distancestr.Replace(" m", ""), CultureInfo.InvariantCulture) / 1000;
                     }
                     double totalCost = distanceValue * kilometer;
-                    MessageBox.Show(kilometer.ToString());
                     pris += totalCost;
                     label4.Text = pris.ToString();
                 }
@@ -155,7 +154,6 @@ namespace New_Taxa
             {
                 basePrice = 47;
                 kilometer = 16;
-                
             }
             else if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 1)
             {
