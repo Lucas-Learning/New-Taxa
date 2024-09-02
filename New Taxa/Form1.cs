@@ -19,6 +19,7 @@ namespace New_Taxa
     public partial class Form1 : Form
     {
         private string distancestr { get; set; }
+        private double kilometer { get; set; }
         private double pris { get; set; }
         private double basePrice = 0;
         private string apiKey = "AIzaSyDAo5Cokd4acdyTCMgtY1DXBUTPToyE--I";
@@ -98,7 +99,8 @@ namespace New_Taxa
                     {
                         distanceValue = double.Parse(distancestr.Replace(" m", ""), CultureInfo.InvariantCulture) / 1000;
                     }
-                    double totalCost = distanceValue * 12.75;
+                    double totalCost = distanceValue * kilometer;
+                    MessageBox.Show(kilometer.ToString());
                     pris += totalCost;
                     label4.Text = pris.ToString();
                 }
@@ -147,18 +149,23 @@ namespace New_Taxa
             if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 0)
             {
                 basePrice = 37;
+                kilometer = 12.75;
             }
             else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 0)
             {
-                basePrice = 47;               
+                basePrice = 47;
+                kilometer = 16;
+                
             }
             else if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 1)
             {
-                basePrice = 77;               
+                basePrice = 77;
+                kilometer = 17;
             }
             else if (comboBox1.SelectedIndex == 1 && comboBox2.SelectedIndex == 1)
             {
                 basePrice = 87;
+                kilometer = 19;
             }
             pris = basePrice;
             label4.Text = pris.ToString();
@@ -174,5 +181,6 @@ namespace New_Taxa
             
             UpdatePrice();
         }
+        
     }
 }
