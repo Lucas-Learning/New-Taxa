@@ -38,7 +38,7 @@
             // 
             // name_Location
             // 
-            this.name_Location.Location = new System.Drawing.Point(327, 74);
+            this.name_Location.Location = new System.Drawing.Point(579, 253);
             this.name_Location.Name = "name_Location";
             this.name_Location.Size = new System.Drawing.Size(100, 20);
             this.name_Location.TabIndex = 1;
@@ -46,16 +46,16 @@
             // 
             // destination_Location
             // 
-            this.destination_Location.Location = new System.Drawing.Point(327, 120);
+            this.destination_Location.Location = new System.Drawing.Point(579, 341);
             this.destination_Location.Name = "destination_Location";
             this.destination_Location.Size = new System.Drawing.Size(100, 20);
             this.destination_Location.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(335, 146);
+            this.button1.Location = new System.Drawing.Point(579, 154);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
+            this.button1.Size = new System.Drawing.Size(153, 50);
             this.button1.TabIndex = 2;
             this.button1.Text = "Show Map";
             this.button1.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(327, 180);
+            this.button2.Location = new System.Drawing.Point(377, 154);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 28);
+            this.button2.Size = new System.Drawing.Size(176, 50);
             this.button2.TabIndex = 4;
             this.button2.Text = "Get Distance";
             this.button2.UseVisualStyleBackColor = true;
@@ -74,7 +74,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(350, 58);
+            this.label1.Location = new System.Drawing.Point(576, 221);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 5;
@@ -84,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(350, 104);
+            this.label2.Location = new System.Drawing.Point(576, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Dag",
             "Nat"});
-            this.comboBox1.Location = new System.Drawing.Point(482, 73);
+            this.comboBox1.Location = new System.Drawing.Point(418, 90);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
@@ -115,11 +115,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(385, 244);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(377, 253);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 13);
+            this.label4.Size = new System.Drawing.Size(64, 33);
             this.label4.TabIndex = 10;
             this.label4.Text = "0 kr";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // webView21
             // 
@@ -128,16 +130,17 @@
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
             this.webView21.Location = new System.Drawing.Point(12, 12);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(309, 426);
+            this.webView21.Size = new System.Drawing.Size(336, 426);
             this.webView21.TabIndex = 11;
             this.webView21.ZoomFactor = 1D;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(523, 57);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(452, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(41, 18);
             this.label5.TabIndex = 12;
             this.label5.Text = "Time";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -148,7 +151,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Almindelige",
             "Store"});
-            this.comboBox2.Location = new System.Drawing.Point(629, 74);
+            this.comboBox2.Location = new System.Drawing.Point(584, 90);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 13;
@@ -157,9 +160,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(671, 52);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(626, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(42, 18);
             this.label6.TabIndex = 14;
             this.label6.Text = "Vogn";
             // 
@@ -175,9 +179,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(377, 343);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(377, 341);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.Size = new System.Drawing.Size(103, 33);
             this.label8.TabIndex = 16;
             this.label8.Text = "0.0 km";
             // 

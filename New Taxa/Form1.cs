@@ -25,6 +25,7 @@ namespace New_Taxa
         private string apiKey = "AIzaSyDAo5Cokd4acdyTCMgtY1DXBUTPToyE--I";
         public Form1()
         {
+           
             InitializeComponent();
           
             InitializeWebView();
@@ -179,6 +180,10 @@ namespace New_Taxa
             
             UpdatePrice();
         }
-        
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
