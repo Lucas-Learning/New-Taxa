@@ -185,5 +185,12 @@ namespace New_Taxa
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
+            this.Hide();
+        }
     }
 }
