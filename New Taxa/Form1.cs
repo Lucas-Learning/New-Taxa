@@ -37,33 +37,10 @@ namespace New_Taxa
             this.Controls.Add(webView21);
             await webView21.EnsureCoreWebView2Async(null);
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
- 
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             string url = string.Format("http://maps.google.com/maps?t={0}&q=loc:{1}","Satellite", name_Location.Text);
             webView21.Source = new Uri(url);
-        }
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            
-
-        }
-
-        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
-        {
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void map_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
         private async void button2_Click(object sender, EventArgs e)
         {
@@ -110,40 +87,6 @@ namespace New_Taxa
                 MessageBox.Show(ex.Message);
             }
         }
-        private void name_Location_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void map_type_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void name_Location_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
         private void UpdatePrice()
         {
             if (comboBox1.SelectedIndex == 0 && comboBox2.SelectedIndex == 0)
@@ -172,18 +115,12 @@ namespace New_Taxa
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
             UpdatePrice();
         }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             UpdatePrice();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -46,7 +46,6 @@
             this.name_Location.Name = "name_Location";
             this.name_Location.Size = new System.Drawing.Size(100, 20);
             this.name_Location.TabIndex = 1;
-            this.name_Location.TextChanged += new System.EventHandler(this.name_Location_TextChanged_1);
             // 
             // destination_Location
             // 
@@ -85,7 +84,6 @@
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Lokation";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -104,7 +102,6 @@
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Pris";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // comboBox1
             // 
@@ -127,7 +124,6 @@
             this.label4.Size = new System.Drawing.Size(64, 33);
             this.label4.TabIndex = 10;
             this.label4.Text = "0 kr";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // webView21
             // 
@@ -149,7 +145,6 @@
             this.label5.Size = new System.Drawing.Size(41, 18);
             this.label5.TabIndex = 12;
             this.label5.Text = "Time";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // comboBox2
             // 
@@ -246,7 +241,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.name_Location);
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
